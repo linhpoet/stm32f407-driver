@@ -6,12 +6,12 @@ void testLED();
 int main()
 {
 	testLED();
-
+	
 }
 
 void testLED()
 {
-	GPIOD_PCLK_EN();
+	GPIO_PeriClockControl(GPIOD, ENABLE);
 	GPIOD->MODER &= 0xfcffffff;
 	GPIOD->MODER |= 0x55555555;
 	
@@ -19,4 +19,7 @@ void testLED()
 	GPIOD->ODR |= 1<<13;
 	GPIOD->ODR |= 1<<14;
 	GPIOD->ODR |= 1<<15;
+	GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+	GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+	GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 }

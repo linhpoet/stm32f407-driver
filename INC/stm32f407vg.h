@@ -4,6 +4,7 @@
  *  Created on: Oct 18, 2021
  *      Author: Linh
  */
+ 
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
 
@@ -12,6 +13,64 @@
 #include "stm32f407_rcc_driver.h"
 #include "stm32f407_gpio_driver.h"
 
+
+
+/*
+*	Config struct for EXTI
+*/
+typedef struct
+{
+	__IO uint32_t IMR;
+	__IO uint32_t EMR;
+	__IO uint32_t RTSR;
+	__IO uint32_t FTSR;
+	__IO uint32_t SWIER;
+	__IO uint32_t PR;
+}EXTI_RegDef_t;
+
+
+
+/*
+*	Some generic marcos
+*/
+#define ENABLE			1
+#define DISABLE			0
+#define SET					1
+#define RESET				0
+#define GPIO_PIN_SET 1
+#define GPIO_PIN_RESET 0
+
+/*
+ * ARM Cortex Mx Processor NVIC ISERx register Addresses
+ */
+
+#define NVIC_ISER0			((__IO uint32_t*)0xE000E100)
+#define NVIC_ISER1			((__IO uint32_t*)0xE000E104)
+#define NVIC_ISER2			((__IO uint32_t*)0xE000E108)
+#define NVIC_ISER3			((__IO uint32_t*)0xE000E10C)
+#define NVIC_ISER4			((__IO uint32_t*)0xE000E110)
+
+
+
+/*
+ * ARM Cortex Mx Processor NVIC ICERx register Addresses
+ */
+#define NVIC_ICER0 			((__IO uin32_t*)0xE000E180)
+#define NVIC_ICER1 			((__IO uin32_t*)0xE000E184)
+#define NVIC_ICER2 			((__IO uin32_t*)0xE000E188)
+#define NVIC_ICER3 			((__IO uin32_t*)0xE000E18C)
+#define NVIC_ICER4 			((__IO uin32_t*)0xE000E190)
+
+
+/*
+ * ARM Cortex Mx Processor Interrupt Priority Register Address Calculation
+ */
+#define NVIC_IPR_BASE_ADDR 	((__vo uint32_t*)0xE000E400)
+
+/*
+ * ARM Cortex Mx Processor number of priority bits implemented in Priority Register
+ */
+#define NO_PR_BITS_IMPLEMENTED  4
 
 /*
 *   base address of FLASH and SRAM memory
@@ -53,13 +112,25 @@
 #define DMA1_BASEADDRESS    (AHP1PERIPH_BASE + 0x6000U)
 #define DMA2_BASEADDRESS    (AHP1PERIPH_BASE + 0x6400U)
 
+
+
 /*
 *  BASE_ADDRESS of peripherals which are hanging on AHB2 bus 
 */
 
 
+
+
 /*
-*   GPIO definition
+*  BASE_ADDRESS of peripherals which are hanging on APB2 bus 
+*/
+#define EXTI_BASEADDRESS		(APB2PERIPH_BASE + 0X3C00)
+
+
+
+
+/*
+*   PERIPHERAL definition
 */
 #define GPIOA       ((GPIO_RegDef_t*)GPIOA_BASEADDRESS)
 #define GPIOB       ((GPIO_RegDef_t*)GPIOB_BASEADDRESS)
@@ -74,18 +145,36 @@
 #define GPIOK       ((GPIO_RegDef_t*)GPIOK_BASEADDRESS)
 
 #define RCC         ((RCC_RegDef_t *)(RCC_BASEADDRESS))
+
+#define EXTI				((EXTI_RegDef_t *)(EXTI_BASEADDRESS))
+
 /*
 *   Clock enable marcro for GPIOx peripheral
 */
-#define GPIOA_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<0)
-#define GPIOB_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<1)
-#define GPIOC_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<2)
-#define GPIOD_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<3)
-#define GPIOE_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<4)
-#define GPIOF_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<5)
-#define GPIOG_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<6)
-#define GPIOH_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<7)
-#define GPIOI_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<8)
+#define GPIOA_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<0)
+#define GPIOB_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<1)
+#define GPIOC_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<2)
+#define GPIOD_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<3)
+#define GPIOE_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<4)
+#define GPIOF_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<5)
+#define GPIOG_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<6)
+#define GPIOH_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<7)
+#define GPIOI_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) |= 1<<8)
+
+/*
+*   Clock disable marcro for GPIOx peripheral
+*/
+#define GPIOA_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<0))
+#define GPIOB_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<1))
+#define GPIOC_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<2))
+#define GPIOD_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<3))
+#define GPIOE_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<4))
+#define GPIOF_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<5))
+#define GPIOG_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<6))
+#define GPIOH_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<7))
+#define GPIOI_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<8))
+
+
 
 
 #endif  /*INC_STM32F407XX_H_*/

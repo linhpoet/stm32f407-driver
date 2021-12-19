@@ -58,14 +58,39 @@ typedef enum
     GPIO_PIN_15
 }GPIO_PIN_NUMBER;
 
-void GPIO_Init(void);
-void GPIO_PeriClockControl();
-void GPIO_TogglePin();
-void GPIO_ReadFromInputPin();
-void GPIO_ReadFromInputPort();
-void GPIO_WriteOutputPort();
-void GPIO_WriteOutputPin();
+/*
+*	This is a HANDLE struct for a GPIO pin
+*/
+typedef struct
+{
+	GPIO_RegDef_t *pGPIOx;
+	GPIO_PinConfig_t GPIO_PinConfig;
+}GPIO_Handle_t;
+
+
+/*
+*	GPIO control
+*/
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
+void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi);
+void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, GPIO_PIN_NUMBER PinNumber);
+uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx);
+void GPIO_WriteOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t u16Value);
+void GPIO_WriteOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t EnorDi);
+
+
+/*
+ * IRQ Configuration and ISR handling
+ */
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
+void GPIO_IRQHandling(uint8_t PinNumber);
 
 
 
-#endif
+
+#endif	/*	INC_STM32F407XX_GPIO_DRIVER_H_	*/
+
+
+

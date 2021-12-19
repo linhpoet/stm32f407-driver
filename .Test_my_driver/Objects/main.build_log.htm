@@ -17,72 +17,139 @@ Library Manager: ArmAr.exe V6.14.1
 Hex Converter:   FromElf.exe V6.14.1
 CPU DLL:         SARMCM3.DLL V5.32.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      UL2CM3.DLL V1.163.9.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
 Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
 E:\Desktop\Stm32\stm32f407-driver\.Test_my_driver\main.uvprojx
-Project File Date:  12/19/2021
+Project File Date:  12/20/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14.1', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
 assembling startup_stm32f407xx.s...
+stm32f407_gpio_driver.c(8): warning: In file included from...
+./stm32f407_gpio_driver.h(11): warning: In file included from...
+./stm32f407vg.h(13): warning: In file included from...
+./stm32f407_rcc_driver.h(11): warning: In file included from...
+./stm32f407vg.h(148): warning: no newline at end of file [-Wnewline-eof]
+#endif  /*INC_STM32F407XX_H_*/
+                              ^
+stm32f407_gpio_driver.c(8): warning: In file included from...
+./stm32f407_gpio_driver.h(11): warning: In file included from...
+./stm32f407vg.h(13): warning: In file included from...
+./stm32f407_rcc_driver.h(57): warning: no newline at end of file [-Wnewline-eof]
+#endif /*INC_STM32F407XX_RCC_DRIVER_H_*/
+                                        ^
+stm32f407_gpio_driver.c(8): warning: In file included from...
+./stm32f407_gpio_driver.h(11): warning: In file included from...
+./stm32f407vg.h(148): warning: no newline at end of file [-Wnewline-eof]
+#endif  /*INC_STM32F407XX_H_*/
+                              ^
+stm32f407_gpio_driver.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOA_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(135): note: expanded from macro 'GPIOA_PCLK_DIS'
+#define GPIOA_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<0))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(55): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOB_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(136): note: expanded from macro 'GPIOB_PCLK_DIS'
+#define GPIOB_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<1))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(58): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOC_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(137): note: expanded from macro 'GPIOC_PCLK_DIS'
+#define GPIOC_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<2))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(61): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOD_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(138): note: expanded from macro 'GPIOD_PCLK_DIS'
+#define GPIOD_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<3))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(64): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOE_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(139): note: expanded from macro 'GPIOE_PCLK_DIS'
+#define GPIOE_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<4))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(67): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOF_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(140): note: expanded from macro 'GPIOF_PCLK_DIS'
+#define GPIOF_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<5))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(70): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOG_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(141): note: expanded from macro 'GPIOG_PCLK_DIS'
+#define GPIOG_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<6))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(73): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOH_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(142): note: expanded from macro 'GPIOH_PCLK_DIS'
+#define GPIOH_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<7))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(76): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIOI_PCLK_DIS();
+                        ^~~~~~~~~~~~~~~~
+./stm32f407vg.h(143): note: expanded from macro 'GPIOI_PCLK_DIS'
+#define GPIOI_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<8))
+                                           ~~ ^~~~~~~
+stm32f407_gpio_driver.c(83): warning: unused parameter 'pGPIOHandle' [-Wunused-parameter]
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
+                              ^
+stm32f407_gpio_driver.c(8): warning: In file included from...
+./stm32f407_gpio_driver.h(64): warning: padding size of 'GPIO_Handle_t' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+stm32f407_gpio_driver.c(145): warning: unused parameter 'IRQNumber' [-Wunused-parameter]
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
+                                     ^
+stm32f407_gpio_driver.c(145): warning: unused parameter 'EnorDi' [-Wunused-parameter]
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
+                                                        ^
+stm32f407_gpio_driver.c(151): warning: unused parameter 'IRQNumber' [-Wunused-parameter]
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
+                                    ^
+stm32f407_gpio_driver.c(151): warning: unused parameter 'IRQPriority' [-Wunused-parameter]
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
+                                                        ^
+stm32f407_gpio_driver.c(157): warning: unused parameter 'PinNumber' [-Wunused-parameter]
+void GPIO_IRQHandling(uint8_t PinNumber)
+                              ^
+19 warnings generated.
+compiling stm32f407_gpio_driver.c...
 main.c(2): warning: In file included from...
-./stm32f407vg.h(7): warning: In file included from...
-./stm32f407_rcc_driver.h(6): warning: In file included from...
-./stm32f407vg.h(86): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(13): warning: In file included from...
+./stm32f407_rcc_driver.h(11): warning: In file included from...
+./stm32f407vg.h(148): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 main.c(2): warning: In file included from...
-./stm32f407vg.h(7): warning: In file included from...
-./stm32f407_rcc_driver.h(52): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(13): warning: In file included from...
+./stm32f407_rcc_driver.h(57): warning: no newline at end of file [-Wnewline-eof]
 #endif /*INC_STM32F407XX_RCC_DRIVER_H_*/
                                         ^
 main.c(2): warning: In file included from...
-./stm32f407vg.h(8): warning: In file included from...
-./stm32f407_gpio_driver.h(6): warning: In file included from...
-./stm32f407vg.h(86): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(14): warning: In file included from...
+./stm32f407_gpio_driver.h(11): warning: In file included from...
+./stm32f407vg.h(148): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 main.c(2): warning: In file included from...
-./stm32f407vg.h(8): warning: In file included from...
-./stm32f407_gpio_driver.h(57): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void GPIO_PeriClockControl();
-                          ^
-                           void
-./stm32f407_gpio_driver.h(58): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void GPIO_TogglePin();
-                   ^
-                    void
-./stm32f407_gpio_driver.h(59): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void GPIO_ReadFromInputPin();
-                          ^
-                           void
-./stm32f407_gpio_driver.h(60): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void GPIO_ReadFromInputPort();
-                           ^
-                            void
-./stm32f407_gpio_driver.h(61): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void GPIO_WriteOutputPort();
-                         ^
-                          void
-./stm32f407_gpio_driver.h(62): warning: this function declaration is not a prototype [-Wstrict-prototypes]
-void GPIO_WriteOutputPin();
-                        ^
-                         void
-./stm32f407_gpio_driver.h(66): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-main.c(2): warning: In file included from...
-./stm32f407vg.h(86): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(148): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 main.c(4): warning: this function declaration is not a prototype [-Wstrict-prototypes]
 void testLED();
             ^
              void
-main.c(22): warning: no newline at end of file [-Wnewline-eof]
+main.c(25): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
 main.c(12): warning: no previous prototype for function 'testLED' [-Wmissing-prototypes]
@@ -92,12 +159,12 @@ main.c(4): note: this declaration is not a prototype; add 'void' to make it a pr
 void testLED();
      ^
              void
-14 warnings generated.
+7 warnings generated.
 compiling main.c...
 compiling system_stm32f4xx.c...
 linking...
-Program Size: Code=464 RO-data=408 RW-data=0 ZI-data=1632  
-".\Objects\main.axf" - 0 Error(s), 14 Warning(s).
+Program Size: Code=776 RO-data=408 RW-data=0 ZI-data=1632  
+".\Objects\main.axf" - 0 Error(s), 26 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -123,12 +190,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
