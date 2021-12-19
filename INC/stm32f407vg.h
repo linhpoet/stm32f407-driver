@@ -1,7 +1,12 @@
-#include "stm32f407xx.h"
 
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
+
+#include <stdint.h>
+#define __IO volatile
+#include "stm32f407_rcc_driver.h"
+#include "stm32f407_gpio_driver.h"
+
 
 /*
 *   base address of FLASH and SRAM memory
@@ -37,7 +42,7 @@
 #define GPIOJ_BASEADDRESS   (AHP1PERIPH_BASE + 0X2400U)
 #define GPIOK_BASEADDRESS   (AHP1PERIPH_BASE + 0X2800U)
 #define CRC_BASEADDRESS     (AHP1PERIPH_BASE + 0x3000U)
-#define RCC_BASEADDRESS     (AHP1PERIPH_BASE + 0x3800U)
+#define RCC_BASEADDRESS     (AHP1PERIPH_BASE + 0X3800U)
 #define Flash_Interface_ADDR    (AHP1PERIPH_BASE + 0x3C00U)
 #define BKPSRAM_BASEADDRESS (AHP1PERIPH_BASE + 0x4000U)
 #define DMA1_BASEADDRESS    (AHP1PERIPH_BASE + 0x6000U)
@@ -51,17 +56,31 @@
 /*
 *   GPIO definition
 */
-#define GPIOA       (GPIO_RegDef_t*)(GPIOA_BASEADDRESS)
-#define GPIOB       (GPIO_RegDef_t*)(GPIOB_BASEADDRESS)
-#define GPIOC       (GPIO_RegDef_t*)(GPIOC_BASEADDRESS)
-#define GPIOD       (GPIO_RegDef_t*)(GPIOD_BASEADDRESS)
-#define GPIOE       (GPIO_RegDef_t*)(GPIOE_BASEADDRESS)
-#define GPIOF       (GPIO_RegDef_t*)(GPIOF_BASEADDRESS)
-#define GPIOG       (GPIO_RegDef_t*)(GPIOG_BASEADDRESS)
-#define GPIOH       (GPIO_RegDef_t*)(GPIOH_BASEADDRESS)
-#define GPIOI       (GPIO_RegDef_t*)(GPIOI_BASEADDRESS)
-#define GPIOJ       (GPIO_RegDef_t*)(GPIOJ_BASEADDRESS)
-#define GPIOK       (GPIO_RegDef_t*)(GPIOK_BASEADDRESS)
+#define GPIOA       ((GPIO_RegDef_t*)GPIOA_BASEADDRESS)
+#define GPIOB       ((GPIO_RegDef_t*)GPIOB_BASEADDRESS)
+#define GPIOC       ((GPIO_RegDef_t*)GPIOC_BASEADDRESS)
+#define GPIOD       ((GPIO_RegDef_t*)GPIOD_BASEADDRESS)
+#define GPIOE       ((GPIO_RegDef_t*)GPIOE_BASEADDRESS)
+#define GPIOF       ((GPIO_RegDef_t*)GPIOF_BASEADDRESS)
+#define GPIOG       ((GPIO_RegDef_t*)GPIOG_BASEADDRESS)
+#define GPIOH       ((GPIO_RegDef_t*)GPIOH_BASEADDRESS)
+#define GPIOI       ((GPIO_RegDef_t*)GPIOI_BASEADDRESS)
+#define GPIOJ       ((GPIO_RegDef_t*)GPIOJ_BASEADDRESS)
+#define GPIOK       ((GPIO_RegDef_t*)GPIOK_BASEADDRESS)
+
+#define RCC         ((RCC_RegDef_t *)(RCC_BASEADDRESS))
+/*
+*   Clock enable marcro for GPIOx peripheral
+*/
+#define GPIOA_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<0)
+#define GPIOB_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<1)
+#define GPIOC_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<2)
+#define GPIOD_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<3)
+#define GPIOE_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<4)
+#define GPIOF_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<5)
+#define GPIOG_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<6)
+#define GPIOH_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<7)
+#define GPIOI_PCLK_EN()     ((((RCC_RegDef_t*)RCC_BASEADDRESS)->AHB1ENR) = 1<<8)
 
 
 #endif  /*INC_STM32F407XX_H_*/

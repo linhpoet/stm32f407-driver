@@ -3,7 +3,7 @@
 #ifndef INC_STM32F407XX_RCC_DRIVER_H_
 #define INC_STM32F407XX_RCC_DRIVER_H_
 
-#include "stm32f407xx.h"
+#include "stm32f407vg.h"
 
 /*
 *   rcc register definition structure
@@ -36,12 +36,12 @@ typedef struct
     __IO uint32_t RESERVED7;
     __IO uint32_t APB1LPENR;
     __IO uint32_t APB2LPENR;
-    __IO uint32_t RESERVED;
-    __IO uint32_t RESERVED;
+    __IO uint32_t RESERVED8;
+    __IO uint32_t RESERVED9;
     __IO uint32_t BDCR;
     __IO uint32_t CSR;
-    __IO uint32_t RESERVED;
-    __IO uint32_t RESERVED;
+    __IO uint32_t RESERVED10;
+    __IO uint32_t RESERVED11;
     __IO uint32_t SSCGR;
     __IO uint32_t PLLI2SCFGR;
     __IO uint32_t PLLSAICFGR;

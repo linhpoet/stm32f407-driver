@@ -1,8 +1,9 @@
-#define __IO    volatile
 
-//#ifdef INC_STM32F407XX_GPIO_DRIVER_H_
+
+#ifndef INC_STM32F407XX_GPIO_DRIVER_H_
 #define INC_STM32F407XX_GPIO_DRIVER_H_
-#include "stm32f407xx.h"
+
+#include "stm32f407vg.h"
 
 
 /*
@@ -59,8 +60,6 @@ void GPIO_ReadFromInputPin();
 void GPIO_ReadFromInputPort();
 void GPIO_WriteOutputPort();
 void GPIO_WriteOutputPin();
-
-
 
 
 
