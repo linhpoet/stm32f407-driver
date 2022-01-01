@@ -80,9 +80,26 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 
 
 
-void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
+void GPIO_Init(GPIO_RegDef_t *pGPIOx, GPIO_PinConfig_t *GPIO_PinConfig)
 {
+	uint32_t temp;
+
+	GPIO_PeriClockControl(pGPIOx, ENABLE);
 	
+	//1 . configure the mode of gpio pin
+	if(GPIO_PinConfig->GPIO_PinMode <= 0x03)
+	{
+		temp = ((uint32_t)GPIO_PinConfig->GPIO_PinMode) << (2 * GPIO_PinConfig->GPIO_PinNumber);
+		pGPIOx->MODER &= ~((uint32_t)0x03 << (2 * (uint32_t)GPIO_PinConfig->GPIO_PinNumber));	//clear 2 bit
+		pGPIOx->MODER |= temp;		//gan gia tri 2 bit chon che do
+	}
+	//2. configure the speed
+	
+	//3. configure the pupd settings
+	
+	//4. configure the optype
+	
+	//5. configure the alt functionality
 }
 
 
@@ -168,22 +185,21 @@ void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi)
 			*NVIC_ICER0 &= ~(1 << IRQNumber);
 		}else if(IRQNumber >= 32 && IRQNumber <= 63)			//32 to 63
 		{
-			*NVIC_ICER1 &= ~(1 << (IRQNumber - 32);
+			*NVIC_ICER1 &= ~(1 << (IRQNumber - 32));
 		}else if(IRQNumber >=64 && IRQNumber<=95)			//64 to 95
 		{
-			*NVIC_ICER2 &= ~(1 << (IRQNumber - 64);
+			*NVIC_ICER2 &= ~(1 << (IRQNumber - 64));
 		}else if(IRQNumber >=96 && IRQNumber<=127)			//96 to 127
 		{
-			*NVIC_ICER3 &= ~(1 << (IRQNumber - 96);
+			*NVIC_ICER3 &= ~(1 << (IRQNumber - 96));
 		}
 	}
 }
 
 /*
 *	config priority for IRQ
-	Co 255 muc priority cho IRQ, duoc gan gia tri bang 8 bit cua cac thanh ghi IPR[]
-	Trong vidoe thi bao rang chi co 4/8 bit do dung de quy dinh priority, code duoi dung ca 8 bit
-	1 thanh ghi ipr[] gom 4 fileds, dung de dat muc uu tien cho ngat tuong ung
+1 thanh ghi ipr[] gom 4 fileds, dung de dat muc uu tien cho ngat tuong ung
+	Co 16 muc priority cho IRQ, duoc gan gia tri bang 4 bit trong field cua cac thanh ghi IPR[]
 	vdk stm32f4 gan cac ngat vao cac vi tri tu 0-n cua arm
 */
 
@@ -194,9 +210,8 @@ void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
 	/*2. tim ra field(8 bit) quy dinh priority cua loai IRQ*/
 	uint8_t iprx_section = IRQNumber%4;
 	/*Dua priority ve 0 truoc, vi neu chuyen tu muc IRQPriority= 1 sang 2 thi IRQPriority|0x02 = 0x03*/
-	*(NVIC_IPR_BASE_ADDR + iprx*4) &= ~(0xff << iprx_section)
-	/*moi thanh ghi 4 byte nen iprx*4 de ra duoc dia chi thanh ghi*/
-	*(NVIC_IPR_BASE_ADDR + iprx*4) |= ~(IRQPriority << iprx_section);
+	/*con tro kieu uint32 nen chi can + iprx de ra duoc dia chi thanh ghi*/
+	*(NVIC_IPR_BASE_ADDR + iprx) = (*(NVIC_IPR_BASE_ADDR + iprx)&(0xff << iprx_section*8)) | (IRQPriority << (iprx_section*8 + 4));
 }
 
 

@@ -1,20 +1,21 @@
 Dependencies for Project 'main', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6140001::V6.14.1::ARMCLANG
-F (.\main.c)(0x61BF6473)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/Linh/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Linh/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x61D0A8A8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/Linh/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Linh/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_-o ./objects/main.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5F51209E)
-I (stm32f407vg.h)(0x61BF76E5)
+I (stm32f407vg.h)(0x61CCB411)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F51209E)
 I (stm32f407_rcc_driver.h)(0x61BF2C09)
-I (stm32f407_gpio_driver.h)(0x61BF6C7F)
-F (.\stm32f407_gpio_driver.h)(0x61BF6C7F)()
+I (stm32f407_gpio_driver.h)(0x61D0B04A)
+F (.\stm32f407_gpio_driver.h)(0x61D0B04A)()
 F (.\stm32f407_rcc_driver.h)(0x61BF2C09)()
-F (.\stm32f407vg.h)(0x61BF76E5)()
-F (.\stm32f407_exti_driver.h)(0x61BF76D0)()
-F (.\stm32f407_gpio_driver.c)(0x61BF7255)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/Linh/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Linh/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_-o ./objects/stm32f407_gpio_driver.o -MD)
-I (stm32f407_gpio_driver.h)(0x61BF6C7F)
-I (stm32f407vg.h)(0x61BF76E5)
+F (.\stm32f407vg.h)(0x61CCB411)()
+F (.\stm32f407_exti_driver.h)(0x61BF7702)()
+F (.\stm32f407_gpio_driver.c)(0x61D0B11E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/Linh/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Linh/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_-o ./objects/stm32f407_gpio_driver.o -MD)
+I (stm32f407_gpio_driver.h)(0x61D0B04A)
+I (stm32f407vg.h)(0x61CCB411)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F51209E)
 I (stm32f407_rcc_driver.h)(0x61BF2C09)
+F (.\stm32f407_usart_driver.h)(0x61D0A7C1)()
 F (RTE\Device\STM32F407VGTx\startup_stm32f407xx.s)(0x5F6ADFE6)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto -c-gdwarf-3-I./RTE/_Target_1-IC:/Users/Linh/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Linh/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 532" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F407xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f407xx.o)
 F (RTE\Device\STM32F407VGTx\system_stm32f4xx.c)(0x5F6ADFE6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/Linh/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Linh/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_-o ./objects/system_stm32f4xx.o -MD)
 I (C:\Users\Linh\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5F6ADFE6)

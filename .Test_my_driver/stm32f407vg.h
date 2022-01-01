@@ -35,10 +35,10 @@ typedef struct
 */
 #define ENABLE			1
 #define DISABLE			0
-#define SET					1
-#define RESET				0
-#define GPIO_PIN_SET 1
-#define GPIO_PIN_RESET 0
+#define SET				1
+#define RESET			0
+#define GPIO_PIN_SET 	1
+#define GPIO_PIN_RESET 	0
 
 /*
  * ARM Cortex Mx Processor NVIC ISERx register Addresses
@@ -55,17 +55,17 @@ typedef struct
 /*
  * ARM Cortex Mx Processor NVIC ICERx register Addresses
  */
-#define NVIC_ICER0 			((__IO uin32_t*)0xE000E180)
-#define NVIC_ICER1 			((__IO uin32_t*)0xE000E184)
-#define NVIC_ICER2 			((__IO uin32_t*)0xE000E188)
-#define NVIC_ICER3 			((__IO uin32_t*)0xE000E18C)
-#define NVIC_ICER4 			((__IO uin32_t*)0xE000E190)
+#define NVIC_ICER0 			((__IO uint32_t*)0xE000E180)
+#define NVIC_ICER1 			((__IO uint32_t*)0xE000E184)
+#define NVIC_ICER2 			((__IO uint32_t*)0xE000E188)
+#define NVIC_ICER3 			((__IO uint32_t*)0xE000E18C)
+#define NVIC_ICER4 			((__IO uint32_t*)0xE000E190)
 
 
 /*
  * ARM Cortex Mx Processor Interrupt Priority Register Address Calculation
  */
-#define NVIC_IPR_BASE_ADDR 	((__vo uint32_t*)0xE000E400)
+#define NVIC_IPR_BASE_ADDR 	((__IO uint32_t*)0xE000E400)
 
 /*
  * ARM Cortex Mx Processor number of priority bits implemented in Priority Register
@@ -125,6 +125,43 @@ typedef struct
 *  BASE_ADDRESS of peripherals which are hanging on APB2 bus 
 */
 #define EXTI_BASEADDRESS		(APB2PERIPH_BASE + 0X3C00)
+
+
+
+/*
+*  BASE_ADDRESS of peripherals which are hanging on APB2 bus 
+*/
+#define TIM2_BASEADDRESS		(APB2PERIPH_BASE)
+#define TIM3_BASEADDRESS		(APB2PERIPH_BASE + 0X0400)
+#define TIM4_BASEADDRESS		(APB2PERIPH_BASE + 0X0800)
+#define TIM5_BASEADDRESS		(APB2PERIPH_BASE + 0X0C00)
+#define TIM6_BASEADDRESS		(APB2PERIPH_BASE + 0X1000)
+#define TIM7_BASEADDRESS		(APB2PERIPH_BASE + 0X1400)
+#define TIM12_BASEADDRESS		(APB2PERIPH_BASE + 0X1800)
+#define TIM13_BASEADDRESS		(APB2PERIPH_BASE + 0X1C00)
+#define TIM14_BASEADDRESS		(APB2PERIPH_BASE + 0X2000)
+#define RTCnBKP_BASEADDRESS		(APB2PERIPH_BASE + 0X2800)
+#define WWDG_BASEADDRESS		(APB2PERIPH_BASE + 0X2C00)
+#define IWDG_BASEADDRESS		(APB2PERIPH_BASE + 0X3000)
+#define I2S2ext_BASEADDRESS		(APB2PERIPH_BASE + 0X3400)
+#define SPI2I2S2_BASEADDRESS		(APB2PERIPH_BASE + 0X3800)
+#define SPI3I2S3_BASEADDRESS		(APB2PERIPH_BASE + 0X3C00)
+#define I2S3ext_BASEADDRESS		(APB2PERIPH_BASE + 0X4000)
+#define USART2_BASEADDRESS		(APB2PERIPH_BASE + 0X4400)
+#define USART3_BASEADDRESS		(APB2PERIPH_BASE + 0X4800)
+#define UART4_BASEADDRESS		(APB2PERIPH_BASE + 0X4C00)
+#define UART5_BASEADDRESS		(APB2PERIPH_BASE + 0X5000)
+#define I2C1_BASEADDRESS		(APB2PERIPH_BASE + 0X5400)
+#define I2C2_BASEADDRESS		(APB2PERIPH_BASE + 0X5800)
+#define I2C3_BASEADDRESS		(APB2PERIPH_BASE + 0X5C00)
+#define CAN1_BASEADDRESS		(APB2PERIPH_BASE + 0X6400)
+#define CAN2_BASEADDRESS		(APB2PERIPH_BASE + 0X6800)
+#define PWR_BASEADDRESS			(APB2PERIPH_BASE + 0X7000)
+#define DAC_BASEADDRESS			(APB2PERIPH_BASE + 0X7400)
+#define UART7_BASEADDRESS		(APB2PERIPH_BASE + 0X7800)
+#define UART8_BASEADDRESS		(APB2PERIPH_BASE + 0X7C00)
+
+
 
 
 

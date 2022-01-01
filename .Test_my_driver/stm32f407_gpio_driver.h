@@ -28,16 +28,6 @@ typedef struct
 }GPIO_RegDef_t;
 
 
-typedef struct
-{
-    uint8_t GPIO_PinNumber;
-    uint8_t GPIO_PinMode;
-    uint8_t GPIO_Speed;
-    uint8_t GPIO_PuPdControl;
-    uint8_t GPIOOPType;
-    uint8_t GPIO_PinAltFunMode;
-}GPIO_PinConfig_t;
-
 typedef enum
 {
     GPIO_PIN_0 = 0,
@@ -58,20 +48,29 @@ typedef enum
     GPIO_PIN_15
 }GPIO_PIN_NUMBER;
 
-/*
-*	This is a HANDLE struct for a GPIO pin
-*/
+typedef enum
+{
+	GPIO_MODE_IN = 0,
+	GPIO_MODE_OUT,
+	GPIO_MODE_ALTFN,
+	GPIO_MODE_ANALOG
+}GPIO_PinMode_t;
+
 typedef struct
 {
-	GPIO_RegDef_t *pGPIOx;
-	GPIO_PinConfig_t GPIO_PinConfig;
-}GPIO_Handle_t;
+    GPIO_PIN_NUMBER GPIO_PinNumber;
+    GPIO_PinMode_t GPIO_PinMode;
+    uint8_t GPIO_Speed;
+    uint8_t GPIO_PuPdControl;
+    uint8_t GPIOOPType;
+    uint8_t GPIO_PinAltFunMode;
+}GPIO_PinConfig_t;
 
 
 /*
 *	GPIO control
 */
-void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
+void GPIO_Init(GPIO_RegDef_t *pGPIOx, GPIO_PinConfig_t *GPIO_PinConfig);
 void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi);
 void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, GPIO_PIN_NUMBER PinNumber);
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
