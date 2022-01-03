@@ -74,9 +74,24 @@ void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi);
 void USART_Init();
 void USART_DeInit();
 void USART_SentData();
-void USART_ReceiveData()
+void USART_ReceiveData();
+void USART_ITConfig();
+void USART_GetITStatus();
+void USART_ClearPendingBit();
+void USART_GetFlagStatus();
+void USART_ClearFlag();
 
-
+/*
+USART Driver for STM32F1
+- USART_Init
+- USART_SendData
+- USART_ReceiveData
+- USART_ITConfig
+- USART_GetITStatus
+- USART_ClearPendingBit
+- USART_GetFlagStatus
+- USART_ClearFlag
+*/
 
 
 #endif
