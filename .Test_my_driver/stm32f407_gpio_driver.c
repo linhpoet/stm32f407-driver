@@ -83,23 +83,47 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 void GPIO_Init(GPIO_RegDef_t *pGPIOx, GPIO_PinConfig_t *GPIO_PinConfig)
 {
 	uint32_t temp;
-
+	//enable GPIOx clock
 	GPIO_PeriClockControl(pGPIOx, ENABLE);
 	
 	//1 . configure the mode of gpio pin
-	if(GPIO_PinConfig->GPIO_PinMode <= 0x03)
+	if(GPIO_PinConfig->GPIO_PinMode <= GPIO_MODE_ANALOG)
 	{
+		/*the none interrupt mode*/
 		temp = ((uint32_t)GPIO_PinConfig->GPIO_PinMode) << (2 * GPIO_PinConfig->GPIO_PinNumber);
-		pGPIOx->MODER &= ~((uint32_t)0x03 << (2 * (uint32_t)GPIO_PinConfig->GPIO_PinNumber));	//clear 2 bit
+		pGPIOx->MODER &= ~((uint32_t)0x3 << (2 * (uint32_t)GPIO_PinConfig->GPIO_PinNumber));	//clear 2 bit
 		pGPIOx->MODER |= temp;		//gan gia tri 2 bit chon che do
+	}else
+	{
+		/*with interrupt mode- chua viet duoc :))*/
 	}
+
 	//2. configure the speed
-	
+	temp = ((uint32_t)GPIO_PinConfig->GPIO_Speed)<<(2 * GPIO_PinConfig->GPIO_PinNumber);
+	pGPIOx->OSPEED &= ~((uint32_t)0x3 << 2 * (uint32_t)GPIO_PinConfig->GPIO_PinNumber);			//clear 2 bit
+	pGPIOx->OSPEED |= temp;
+
 	//3. configure the pupd settings
-	
-	//4. configure the optype
-	
+	temp = (GPIO_PinConfig->GPIO_PuPdControl) << (2 * GPIO_PinConfig->GPIO_PinNumber);
+	pGPIOx->PUPDR &= ~((uint32_t)0x3 << (2 * (uint32_t)GPIO_PinConfig->GPIO_PinNumber));		//clear 2 bit
+	pGPIOx->PUPDR |= temp;
+
+	//4. configure the otyper
+	temp = (GPIO_PinConfig->GPIOOTyper) << (GPIO_PinConfig->GPIO_PinNumber);
+	pGPIOx->OTYPER &= ~((uint32_t)0x1 << (uint32_t)(GPIO_PinConfig->GPIO_PinNumber));			//clear 1 bit
+	pGPIOx->OTYPER |= temp;
+
 	//5. configure the alt functionality
+	if(GPIO_PinConfig->GPIO_PinMode == GPIO_MODE_ALTFN)
+	{
+		//configure the alt function registers.
+		uint8_t temp1, temp2;
+		/*	pin0-7:AFR[0]	;	pin8-15:AFR[1]	*/
+		temp1 = GPIO_PinConfig->GPIO_PinNumber / 8;
+		temp2 = GPIO_PinConfig->GPIO_PinNumber  % 8;
+		pGPIOx->AFR[temp1] &= ~(0xF << ( 4 * temp2 ) ); 										//clear 4 bit
+		pGPIOx->AFR[temp1] |= (GPIO_PinConfig->GPIO_PinAltFunMode << ( 4 * temp2 ) );
+	}
 }
 
 

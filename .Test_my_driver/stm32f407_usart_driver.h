@@ -68,18 +68,32 @@ typedef struct
 #define USART_Baud_3M            3000000
 
 
+/*
+*   USART Flags
+*/
+#define USART_PE_Flag   0x01
+#define USART_FE_Flag   0x03
+#define USART_NE_Flag   0x05
+#define USART_ORE_Flag  1<<3
+#define USART_IDLE_Flag  1<<4
+#define USART_RXNE_Flag  1<<5
+#define USART_TC_Flag   1<<6
+#define USART_TXE_Flag  1<<7
+#define USART_LBD_Flag  1<<8
+#define USART_CTS_Flag  1<<9
+
 
 
 void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi);
 void USART_Init();
 void USART_DeInit();
-void USART_SentData();
-void USART_ReceiveData();
-void USART_ITConfig();
+void USART_SentData(USART_RegDef_t* pUSARTx, uint8_t Data);
+uint8_t USART_ReceiveData(USART_RegDef_t* pUSARTx, uint8_t Data);
+void USART_ITConfig(USART_RegDef_t *pUSARTx, uint16_t USART_IT, State EnorDi);
 void USART_GetITStatus();
 void USART_ClearPendingBit();
-void USART_GetFlagStatus();
-void USART_ClearFlag();
+Flag_Status USART_GetFlagStatus(USART_RegDef_t* pUSARTx, uint16_t USART_FLAG);
+void USART_ClearFlag(USART_RegDef_t* pUSARTx, uint16_t USART_FLAG);
 
 /*
 USART Driver for STM32F1

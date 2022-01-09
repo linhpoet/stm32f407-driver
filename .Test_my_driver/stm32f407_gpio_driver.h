@@ -53,17 +53,61 @@ typedef enum
 	GPIO_MODE_IN = 0,
 	GPIO_MODE_OUT,
 	GPIO_MODE_ALTFN,
-	GPIO_MODE_ANALOG
+	GPIO_MODE_ANALOG,
+    GPIO_MODE_IT_FT,
+    GPIO_MODE_IT_RT,
+    GPIO_MODE_IT_RFT
 }GPIO_PinMode_t;
+
+typedef enum
+{
+    GPIO_SPEED_LOW = 0,
+    GPIO_SPEED_MEDIUM ,
+    GPIO_SPEED_HIGH ,
+    GPIO_SPEED_VeryHIGH
+}GPIO_Speed_t;
+
+typedef enum
+{
+    GPIO_NoPull = 0,
+    GPIO_PullUp ,
+    GPIO_PullDown
+}GPIO_PUPD_t;
+
+typedef enum
+{
+    GPIOOTyper_PushPull = 0,
+    GPIOOTyper_OpenDrain ,
+}GPIOOTyper_t;
+
+typedef enum
+{
+    AF0 = 0,
+    AF1 ,
+    AF2  ,
+    AF3  ,
+    AF4  ,
+    AF5  ,
+    AF6  ,
+    AF7  ,
+    AF8  ,
+    AF9  ,
+    AF10  ,
+    AF11  ,
+    AF12  ,
+    AF13  ,
+    AF14  ,
+    AF15  
+}GPIO_PinAltFunMode_t;
 
 typedef struct
 {
     GPIO_PIN_NUMBER GPIO_PinNumber;
     GPIO_PinMode_t GPIO_PinMode;
-    uint8_t GPIO_Speed;
-    uint8_t GPIO_PuPdControl;
-    uint8_t GPIOOPType;
-    uint8_t GPIO_PinAltFunMode;
+    GPIO_Speed_t GPIO_Speed;
+    GPIO_PUPD_t GPIO_PuPdControl;
+    GPIOOTyper_t GPIOOTyper;
+    GPIO_PinAltFunMode_t GPIO_PinAltFunMode;
 }GPIO_PinConfig_t;
 
 

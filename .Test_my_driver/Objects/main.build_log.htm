@@ -22,31 +22,183 @@ Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
 E:\Desktop\Stm32\stm32f407-driver\.Test_my_driver\main.uvprojx
-Project File Date:  12/21/2021
+Project File Date:  01/09/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14.1', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
 assembling startup_stm32f407xx.s...
+stm32f407_usart_driver.c(8): warning: In file included from...
+./stm32f407_usart_driver.h(6): warning: In file included from...
+./stm32f407vg.h(13): warning: In file included from...
+./stm32f407_rcc_driver.h(11): warning: In file included from...
+./stm32f407vg.h(229): warning: no newline at end of file [-Wnewline-eof]
+#endif  /*INC_STM32F407XX_H_*/
+                              ^
+stm32f407_usart_driver.c(8): warning: In file included from...
+./stm32f407_usart_driver.h(6): warning: In file included from...
+./stm32f407vg.h(13): warning: In file included from...
+./stm32f407_rcc_driver.h(61): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_MCOConfig();
+                  ^
+                   void
+./stm32f407_rcc_driver.h(62): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+uint8_t RCC_GetFlagStatus();
+                         ^
+                          void
+./stm32f407_rcc_driver.h(64): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+uint8_t RCC_GetITStatus();
+                       ^
+                        void
+./stm32f407_rcc_driver.h(65): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_ClearITPendingBit();
+                          ^
+                           void
+./stm32f407_rcc_driver.h(67): warning: no newline at end of file [-Wnewline-eof]
+#endif /*INC_STM32F407XX_RCC_DRIVER_H_*/
+                                        ^
+stm32f407_usart_driver.c(8): warning: In file included from...
+./stm32f407_usart_driver.h(6): warning: In file included from...
+./stm32f407vg.h(229): warning: no newline at end of file [-Wnewline-eof]
+#endif  /*INC_STM32F407XX_H_*/
+                              ^
+stm32f407_usart_driver.c(8): warning: In file included from...
+./stm32f407_usart_driver.h(88): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void USART_Init();
+               ^
+                void
+./stm32f407_usart_driver.h(89): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void USART_DeInit();
+                 ^
+                  void
+./stm32f407_usart_driver.h(93): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void USART_GetITStatus();
+                      ^
+                       void
+./stm32f407_usart_driver.h(94): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void USART_ClearPendingBit();
+                          ^
+                           void
+./stm32f407_usart_driver.h(111): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+stm32f407_usart_driver.c(11): warning: unused parameter 'pUSARTx' [-Wunused-parameter]
+ void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
+                                             ^
+stm32f407_usart_driver.c(11): warning: unused parameter 'EnorDi' [-Wunused-parameter]
+ void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
+                                                              ^
+stm32f407_usart_driver.c(17): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void USART_Init();
+               ^
+                void
+stm32f407_usart_driver.c(18): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void USART_DeInit();
+                 ^
+                  void
+stm32f407_usart_driver.c(24): warning: | has lower precedence than ==; == will be evaluated first [-Wparentheses]
+    while((pUSARTx->SR) | (1<<7) == 0);
+                        ^~~~~~~~~~~~~
+stm32f407_usart_driver.c(24): note: place parentheses around the '==' expression to silence this warning
+    while((pUSARTx->SR) | (1<<7) == 0);
+                        ^
+                          (          )
+stm32f407_usart_driver.c(24): note: place parentheses around the | expression to evaluate it first
+    while((pUSARTx->SR) | (1<<7) == 0);
+                        ^
+          (                     )
+stm32f407_usart_driver.c(27): warning: unused parameter 'Data' [-Wunused-parameter]
+uint8_t USART_ReceiveData(USART_RegDef_t *pUSARTx, uint8_t Data)
+                                                           ^
+stm32f407_usart_driver.c(42): warning: comparison between pointer and integer ('USART_RegDef_t *' and 'unsigned int') [-Wpointer-integer-compare]
+        if( pUSARTx == UART4_BASEADDRESS || pUSARTx == UART5_BASEADDRESS)
+            ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+stm32f407_usart_driver.c(42): warning: comparison between pointer and integer ('USART_RegDef_t *' and 'unsigned int') [-Wpointer-integer-compare]
+        if( pUSARTx == UART4_BASEADDRESS || pUSARTx == UART5_BASEADDRESS)
+                                            ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+stm32f407_usart_driver.c(36): warning: unused parameter 'EnorDi' [-Wunused-parameter]
+void USART_ITConfig(USART_RegDef_t *pUSARTx, uint16_t USART_IT, State EnorDi)
+                                                                      ^
+stm32f407_usart_driver.c(51): warning: no previous prototype for function 'USART_GetITStatus' [-Wmissing-prototypes]
+void USART_GetITStatus()
+     ^
+./stm32f407_usart_driver.h(93): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void USART_GetITStatus();
+     ^
+                       void
+stm32f407_usart_driver.c(60): warning: no previous prototype for function 'USART_ClearPendingBit' [-Wmissing-prototypes]
+void USART_ClearPendingBit()
+     ^
+./stm32f407_usart_driver.h(94): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void USART_ClearPendingBit();
+     ^
+                           void
+stm32f407_usart_driver.c(76): warning: comparison between pointer and integer ('USART_RegDef_t *' and 'unsigned int') [-Wpointer-integer-compare]
+        if( pUSARTx == UART4_BASEADDRESS || pUSARTx == UART5_BASEADDRESS)
+            ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+stm32f407_usart_driver.c(76): warning: comparison between pointer and integer ('USART_RegDef_t *' and 'unsigned int') [-Wpointer-integer-compare]
+        if( pUSARTx == UART4_BASEADDRESS || pUSARTx == UART5_BASEADDRESS)
+                                            ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+stm32f407_usart_driver.c(85): warning: equality comparison result unused [-Wunused-comparison]
+        BitStatus == RESET;
+        ~~~~~~~~~~^~~~~~~~
+stm32f407_usart_driver.c(85): note: use '=' to turn this equality comparison into an assignment
+        BitStatus == RESET;
+                  ^~
+                  =
+stm32f407_usart_driver.c(88): warning: equality comparison result unused [-Wunused-comparison]
+        BitStatus == SET;
+        ~~~~~~~~~~^~~~~~
+stm32f407_usart_driver.c(88): note: use '=' to turn this equality comparison into an assignment
+        BitStatus == SET;
+                  ^~
+                  =
+stm32f407_usart_driver.c(101): warning: comparison between pointer and integer ('USART_RegDef_t *' and 'unsigned int') [-Wpointer-integer-compare]
+        if( pUSARTx == UART4_BASEADDRESS || pUSARTx == UART5_BASEADDRESS)
+            ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+stm32f407_usart_driver.c(101): warning: comparison between pointer and integer ('USART_RegDef_t *' and 'unsigned int') [-Wpointer-integer-compare]
+        if( pUSARTx == UART4_BASEADDRESS || pUSARTx == UART5_BASEADDRESS)
+                                            ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+stm32f407_usart_driver.c(109): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+30 warnings generated.
+compiling stm32f407_usart_driver.c...
 main.c(2): warning: In file included from...
 ./stm32f407vg.h(13): warning: In file included from...
 ./stm32f407_rcc_driver.h(11): warning: In file included from...
-./stm32f407vg.h(217): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(229): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 main.c(2): warning: In file included from...
 ./stm32f407vg.h(13): warning: In file included from...
-./stm32f407_rcc_driver.h(57): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407_rcc_driver.h(61): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_MCOConfig();
+                  ^
+                   void
+./stm32f407_rcc_driver.h(62): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+uint8_t RCC_GetFlagStatus();
+                         ^
+                          void
+./stm32f407_rcc_driver.h(64): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+uint8_t RCC_GetITStatus();
+                       ^
+                        void
+./stm32f407_rcc_driver.h(65): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_ClearITPendingBit();
+                          ^
+                           void
+./stm32f407_rcc_driver.h(67): warning: no newline at end of file [-Wnewline-eof]
 #endif /*INC_STM32F407XX_RCC_DRIVER_H_*/
                                         ^
 main.c(2): warning: In file included from...
 ./stm32f407vg.h(14): warning: In file included from...
 ./stm32f407_gpio_driver.h(11): warning: In file included from...
-./stm32f407vg.h(217): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(229): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 main.c(2): warning: In file included from...
-./stm32f407vg.h(217): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(229): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 main.c(4): warning: no previous extern declaration for non-static variable 'pSyst_CSR' [-Wmissing-variable-declarations]
@@ -81,89 +233,117 @@ main.c(19): note: this declaration is not a prototype; add 'void' to make it a p
 void testLED();
      ^
              void
-10 warnings generated.
+14 warnings generated.
 compiling main.c...
 stm32f407_gpio_driver.c(8): warning: In file included from...
 ./stm32f407_gpio_driver.h(11): warning: In file included from...
 ./stm32f407vg.h(13): warning: In file included from...
 ./stm32f407_rcc_driver.h(11): warning: In file included from...
-./stm32f407vg.h(217): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(229): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 stm32f407_gpio_driver.c(8): warning: In file included from...
 ./stm32f407_gpio_driver.h(11): warning: In file included from...
 ./stm32f407vg.h(13): warning: In file included from...
-./stm32f407_rcc_driver.h(57): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407_rcc_driver.h(61): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_MCOConfig();
+                  ^
+                   void
+./stm32f407_rcc_driver.h(62): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+uint8_t RCC_GetFlagStatus();
+                         ^
+                          void
+./stm32f407_rcc_driver.h(64): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+uint8_t RCC_GetITStatus();
+                       ^
+                        void
+./stm32f407_rcc_driver.h(65): warning: this function declaration is not a prototype [-Wstrict-prototypes]
+void RCC_ClearITPendingBit();
+                          ^
+                           void
+./stm32f407_rcc_driver.h(67): warning: no newline at end of file [-Wnewline-eof]
 #endif /*INC_STM32F407XX_RCC_DRIVER_H_*/
                                         ^
 stm32f407_gpio_driver.c(8): warning: In file included from...
 ./stm32f407_gpio_driver.h(11): warning: In file included from...
-./stm32f407vg.h(217): warning: no newline at end of file [-Wnewline-eof]
+./stm32f407vg.h(229): warning: no newline at end of file [-Wnewline-eof]
 #endif  /*INC_STM32F407XX_H_*/
                               ^
 stm32f407_gpio_driver.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOA_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(204): note: expanded from macro 'GPIOA_PCLK_DIS'
+./stm32f407vg.h(216): note: expanded from macro 'GPIOA_PCLK_DIS'
 #define GPIOA_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<0))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(55): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOB_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(205): note: expanded from macro 'GPIOB_PCLK_DIS'
+./stm32f407vg.h(217): note: expanded from macro 'GPIOB_PCLK_DIS'
 #define GPIOB_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<1))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(58): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOC_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(206): note: expanded from macro 'GPIOC_PCLK_DIS'
+./stm32f407vg.h(218): note: expanded from macro 'GPIOC_PCLK_DIS'
 #define GPIOC_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<2))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(61): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOD_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(207): note: expanded from macro 'GPIOD_PCLK_DIS'
+./stm32f407vg.h(219): note: expanded from macro 'GPIOD_PCLK_DIS'
 #define GPIOD_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<3))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(64): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOE_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(208): note: expanded from macro 'GPIOE_PCLK_DIS'
+./stm32f407vg.h(220): note: expanded from macro 'GPIOE_PCLK_DIS'
 #define GPIOE_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<4))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(67): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOF_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(209): note: expanded from macro 'GPIOF_PCLK_DIS'
+./stm32f407vg.h(221): note: expanded from macro 'GPIOF_PCLK_DIS'
 #define GPIOF_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<5))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(70): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOG_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(210): note: expanded from macro 'GPIOG_PCLK_DIS'
+./stm32f407vg.h(222): note: expanded from macro 'GPIOG_PCLK_DIS'
 #define GPIOG_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<6))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(73): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOH_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(211): note: expanded from macro 'GPIOH_PCLK_DIS'
+./stm32f407vg.h(223): note: expanded from macro 'GPIOH_PCLK_DIS'
 #define GPIOH_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<7))
                                            ~~ ^~~~~~~
 stm32f407_gpio_driver.c(76): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         GPIOI_PCLK_DIS();
                         ^~~~~~~~~~~~~~~~
-./stm32f407vg.h(212): note: expanded from macro 'GPIOI_PCLK_DIS'
+./stm32f407vg.h(224): note: expanded from macro 'GPIOI_PCLK_DIS'
 #define GPIOI_PCLK_DIS()     (RCC->AHB1ENR &= ~(1<<8))
                                            ~~ ^~~~~~~
-stm32f407_gpio_driver.c(214): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+stm32f407_gpio_driver.c(107): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        temp = (GPIO_PinConfig->GPIO_PuPdControl) << (2 * GPIO_PinConfig->GPIO_PinNumber);
+             ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+stm32f407_gpio_driver.c(112): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        temp = (GPIO_PinConfig->GPIOOTyper) << (GPIO_PinConfig->GPIO_PinNumber);
+             ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+stm32f407_gpio_driver.c(124): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                pGPIOx->AFR[temp1] &= ~(0xF << ( 4 * temp2 ) );                                                                                 //clear 4 bit
+                                   ~~ ^~~~~~~~~~~~~~~~~~~~~~~~
+stm32f407_gpio_driver.c(125): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                pGPIOx->AFR[temp1] |= (GPIO_PinConfig->GPIO_PinAltFunMode << ( 4 * temp2 ) );
+                                   ~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+stm32f407_gpio_driver.c(238): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         *(NVIC_IPR_BASE_ADDR + iprx) = (*(NVIC_IPR_BASE_ADDR + iprx)&(0xff << iprx_section*8)) | (IRQPriority << (iprx_section*8 + 4));
                                                                     ~ ~~~~~^~~~~~~~~~~~~~~~~
-13 warnings generated.
+21 warnings generated.
 compiling stm32f407_gpio_driver.c...
 compiling system_stm32f4xx.c...
 linking...
 Program Size: Code=852 RO-data=408 RW-data=0 ZI-data=1632  
-".\Objects\main.axf" - 0 Error(s), 23 Warning(s).
+".\Objects\main.axf" - 0 Error(s), 65 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -189,12 +369,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

@@ -40,6 +40,18 @@ typedef struct
 #define GPIO_PIN_SET 	1
 #define GPIO_PIN_RESET 	0
 
+typedef enum
+{
+	Reset = 0,
+	Set = 1
+}Flag_Status;
+
+typedef enum
+{
+	Disable = 0,
+	Enable = 1
+}State;
+
 /*
  * ARM Cortex Mx Processor NVIC ISERx register Addresses
  */

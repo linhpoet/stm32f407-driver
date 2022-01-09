@@ -54,4 +54,14 @@ typedef struct
 }RCC_RegDef_t;
 
 
+void RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, uint8_t EnorDi);
+void RCC_APB1PeriphResetCmd(uint32_t RCC_APB1Periph, uint8_t EnorDi);
+void RCC_BackupResetCmd(uint8_t EnorDi);
+void RCC_ClockSecuritySystemCmd(uint8_t EnorDi);
+void RCC_MCOConfig();
+uint8_t RCC_GetFlagStatus();
+void RCC_ClearFlag(void);
+uint8_t RCC_GetITStatus();
+void RCC_ClearITPendingBit();
+
 #endif /*INC_STM32F407XX_RCC_DRIVER_H_*/
