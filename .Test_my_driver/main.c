@@ -61,6 +61,6 @@ void testLED()
 	GPIOD->ODR |= 1<<13;
 	GPIOD->ODR |= 1<<14;
 	GPIOD->ODR |= 1<<15;
-	GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-	GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+	//GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+	//GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 }
